@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List Avancée</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Todo-List Avancée</h1>
+            <p>Drag & drop, rappels et priorités</p>
+        </header>
+
+        <section class="creation-panel">
+            <div class="input-group">
+                <label for="task-title">Tâche</label>
+                <input type="text" id="task-title" placeholder="Ajouter une nouvelle tâche...">
+            </div>
+            
+            <div class="input-group">
+                <label for="task-date">Date de rappel</label>
+                <input type="datetime-local" id="task-date">
+            </div>
+            
+            <div class="input-group">
+                <label for="task-priority">Priorité</label>
+                <select id="task-priority">
+                    <option value="low">Basse</option>
+                    <option value="medium" selected>Moyenne</option>
+                    <option value="high">Haute</option>
+                </select>
+            </div>
+            
+            <button id="add-task">Ajouter la tâche</button>
+        </section>
+
+        <section class="tasks-container">
+            <div class="task-filters">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="active">Actives</button>
+                <button class="filter-btn" data-filter="completed">Terminées</button>
+            </div>
+            
+            <ul class="task-list" id="task-list">
+                <!-- Les tâches seront injectées ici dynamiquement -->
+                <li class="empty-state">Aucune tâche pour le moment</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
