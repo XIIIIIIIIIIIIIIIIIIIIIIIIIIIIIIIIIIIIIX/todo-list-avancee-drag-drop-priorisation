@@ -1,0 +1,226 @@
+:root {
+    --priority-low: #4CAF50;
+    --priority-medium: #FFC107;
+    --priority-high: #F44336;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-primary: #333333;
+    --text-secondary: #757575;
+    --accent-color: #2196F3;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.creation-panel {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+
+.tasks-container {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.task-filters {
+    display: flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+}
+
+.filter-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 8px;
+    background: white;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.task-list {
+    list-style: none;
+    min-height: 300px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: grab;
+    background-color: var(--card-bg);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item.dragging {
+    opacity: 0.6;
+    box-shadow: var(--shadow);
+    transform: scale(1.02);
+}
+
+.task-item.drag-over {
+    border-top: 2px dashed var(--accent-color);
+}
+
+.task-checkbox {
+    margin-right: 15px;
+}
+
+.task-content {
+    flex-grow: 1;
+}
+
+.task-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.task-details {
+    display: flex;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.task-details > div {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.task-details i {
+    margin-right: 5px;
+}
+
+.priority-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.priority-low { background-color: var(--priority-low); }
+.priority-medium { background-color: var(--priority-medium); }
+.priority-high { background-color: var(--priority-high); }
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    width: auto;
+    padding: 0;
+}
+
+.action-btn:hover {
+    color: var(--accent-color);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.reminder-active {
+    color: var(--priority-high);
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .task-item {
+        flex-wrap: wrap;
+    }
+    
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+}
